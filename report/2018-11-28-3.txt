@@ -1,0 +1,73 @@
+总结一下appium环境的搭建：参考http://www.cnblogs.com/fnng/p/4540731.html
+首先在http://tools.android-studio.org/index.php/sdk这个网址下载Android SDK
+打开这个网址后下 android-sdk_r24.4.1-windows.zip 这个压缩包
+然后把压缩包解压到目录中，之后开始设置环境变量
+添加ANDROID_HOME这个环境变量，它的值就为android-sdk_r24.4.1-windows.zip 这个压缩包的解压目录
+然后在path中添加%ANDROID_HOME%\platform-tools  和  %ANDROID_HOME%\tools
+一定不要写成;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;这样子，会出错
+然后在解压目录中双击 SDK Manage.exe 安装android版本
+这个好几十G，最好在网速快的地方下载，
+下载完成之后在解压目录中双击 AVD Manage.exe去创建安卓虚拟机，这个反应比较慢
+网址上也有教程
+
+然后去下载node-v6.9.4这个东西
+appium-server的版本已经没有更新了，所以不能用最新的nodejs
+最好是用nodejs.6.9.2
+在https://nodejs.org/dist/v6.9.4/这个网址下载node-v6.9.4-x64.msi 
+这个是安装软件。下好后直接安装。安装完成后打开命令窗口运行node -v就会出现安装的版本号
+说明安装好了
+之后下载AppiumForWindows_1_4_16_1.zip 通过https://pan.baidu.com/s/1pKMwdfX
+它的官网下载太慢
+之后按网上的教程来。
+然后写上代码不过在pom.xml中
+<dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.42.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkMode>once</forkMode>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+要这么写才可以

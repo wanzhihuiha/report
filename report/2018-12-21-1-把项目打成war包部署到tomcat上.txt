@@ -1,0 +1,20 @@
+参考https://blog.csdn.net/qq_33512843/article/details/80951741
+https://blog.csdn.net/u013305783/article/details/74454966
+这两个博客。
+然后其中的注意点是applicatin的名一定要是自己那个application的名字，
+然后在idea右边点击Maven Project。先clean一下。
+然后install就可以在项目的target中生成war包。
+然后到tomcat的目录下把这个war包复制到webapps目录下。
+之后就可以在tomcat的目录下的bin目录点击startup启动服务器了。
+而且一启动tomcat就会把webapps目录下的所有项目都启动。
+那样的话就可以在浏览器中访问了：
+例如在webapps目录下有个demo.war的话
+那么在浏览器中访问http://127.0.0.1:8080/demo/后面加上入口就可以
+
+打成war包之后出现了许多问题。特别是路径问题。
+本地都不能访问了。
+找不到test-output了。那就不能读到测试报告了。
+然后等下修改一下代码。把复制的html存到templates中去。
+那之后同controller去访问。
+
+如果把动态编译生成的。class文件也放在本地可不可以？

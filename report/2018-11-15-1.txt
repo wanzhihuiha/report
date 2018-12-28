@@ -1,0 +1,21 @@
+第一次启用selenium-server-standalo
+先在远端启动用命令控制符java -jar （selenium-server-standalo的jar包）
+然后打开连接远程服务器
+WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.120"), DesiredCapabilities.chrome());
+运行报错Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+发现上面那个连接远程服务器的地址错误；修改：URL("http://192.168.0.120:4444/wd/hub/")
+一定要有端口号和/wd/hub/
+
+然后System.setProperty("webdriver.chrome.driver", "D:selenium-server-qudong\\chromedriver.exe")
+是在本机启动浏览器驱动，所以这句没有用
+那么在服务器上，把浏览器驱动包和selenium-selenium-server-standalo的jar包放在一个文件夹中
+或者驱动包地址添加到环境变量中。selenium-selenium-server-standalo的jar包的源码中有自动扫描的操作。
+之后在客户端运行，服务端正常响应。
+
+遇到个奇怪的问题，为什么昨天在本机上测试的时候
+driver.findElement(By.xpath("//a[@id='login_btn']")).click();
+这个事件没有点击。
+然后今天在远端测试的时候就可以，为啥？？？浏览器版本问题？
+在ie浏览器上已经登录过的话，页面又没有关闭，那么重新运行的话，点击事件就不会执行。
+
+/html/body/div/div[2]/div/div[5]/a/span

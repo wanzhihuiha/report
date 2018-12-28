@@ -1,0 +1,67 @@
+安装完android-server后要配置环境变量
+Appium_Home=D:\Androidserver\Androidserver\Appium\node_modules\.bin
+path中加入%Appium_Home%
+然后打开Windows命令提示符，输入“appium-doctor”命令
+如果提示：
+✔ ANDROID_HOME is set to "D:\Android\android-sdk-windows"
+✔ JAVA_HOME is set to "C:\Program Files\Java\jdk1.8.0_191."
+✔ ADB exists at D:\Android\android-sdk-windows\platform-tools\adb.exe
+✔ Android exists at D:\Android\android-sdk-windows\tools\android.bat
+✔ Emulator exists at D:\Android\android-sdk-windows\tools\emulator.exe
+✔ Android Checks were successful.
+
+✔ All Checks were successful
+说明基本环境搭建完成。
+
+然后写第一个appium项目
+先导入依赖：
+<dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.42.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkMode>once</forkMode>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>

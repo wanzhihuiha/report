@@ -1,0 +1,11 @@
+先继续之前的第一步。把项目的地址问题
+设置war包的名字在</plugins>后面加上
+     <finalName>demo</finalName>那么war包的名字为demo
+第一个地址问题修改好后，还有两个问题，首先
+生成的testng报告在哪？第二个是程序提示许多程序包找不到。
+
+出现了classnotfind，然后看了代码应该是在动态编译的中的代码路径问题
+本地的路径的话要加入   file：/  不然也读不到
+
+testng的报告可以用
+testNG.setOutputDirectory()去设置生成位置

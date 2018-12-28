@@ -1,0 +1,18 @@
+appium连接真机，要先打开开发者模式，然后打开usb调试
+之后在电脑上在命令行输入adb devices
+如果连接成功，就会有在List of devices attached下面有设备
+
+然后输入
+adb shell dumpsys window w |findstr \/ |findstr name=
+这个可以看手机上当前应用的包名和应用名
+例如mSurface=Surface(name=com.miui.calculator/com.miui.calculator.cal.CalculatorActivity)
+其中com.miui.calculator就是包名
+com.miui.calculator.cal.CalculatorActivity就是应用名
+然后出现问题
+后来找到https://www.jianshu.com/p/375cf9ce28ef这个博客，解决。
+之后又出现问题 Failed to start an Appium session, err was: Error: Command failed: 
+C:\WINDOWS\system32\cmd.exe /s /c 
+"D:\Android\android-sdk-windows\platform-tools\adb.exe -s 6397d8f80504 shell "ps 'uiautomator'""
+查了一下是因为appium版本太低要换成高版本
+参考https://testerhome.com/topics/9714这个博客去升级
+ 

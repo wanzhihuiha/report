@@ -1,0 +1,24 @@
+去掉driver.switchTo().frame(iframe)之后，
+只找里面的元素的话程序没有报错，例如
+WebElement duao= driver.findElement(By.xpath("/html/body/div/div[2]/div/div[5]"));
+这个元素就在iframe中，但是如果对这个元素进行操作，那么就会报错。
+报错是内容是脚本超时。
+当然如果没有driver.switchTo().frame(iframe)，那么用js直接调用iframe里元素调用的方法
+那也是会报错的。比如
+<a ondblclick="getMenu(3,1010305000,&quot;渠道管理&quot;,1)">
+<span class="icon-e982_document">
+</span>
+<p>渠道管理</p>
+</a>
+这个是iframe里的一个元素。
+如果没有进入iframe就算直接js.executeScript("getMenu(3,1010305000,'渠道管理',1)");
+这么写也都是不行的。那报错：找不到方法。
+
+断言：
+网上实例：
+WebElement myAccount = driver.findElement(By.xpath(".//*[@id='account']/a"));
+Assert.assertTrue(myAccount.isDisplayed());
+如果实际输出为false，则断言true语句将使测试失败并停止测试的执行。
+Assert.assertFalse（）与Assert.assertTrue（）相反。
+这意味着，如果您希望测试仅在页面上不存在某些特定元素时继续。
+您将使用Assert false，因此如果页面上存在元素，它将无法通过测试。

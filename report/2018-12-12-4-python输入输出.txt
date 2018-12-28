@@ -1,0 +1,9 @@
+python的输入输出
+str.format() 的基本使用如下:
+print('{}网址： "{}!"'.format('菜鸟教程', 'www.runoob.com'))
+结果：菜鸟教程网址： "www.runoob.com!"
+print('站点列表 {0}, {1}, 和 {other}。'.format('Google', 'Runoob',other='Taobao'))
+结果：站点列表 Google, Runoob, 和 Taobao。
+
+'!a' (使用 ascii()), '!s' (使用 str()) 和 '!r' (使用 repr()) 可以用于在格式化某个值之前对其进行转化
+

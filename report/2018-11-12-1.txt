@@ -1,0 +1,19 @@
+Testng:
+官方地址：https://testng.org/doc/documentation-main.html#testng-xml
+参考博客：https://www.cnblogs.com/ceshi2016/p/6512235.html
+设置默认参数
+@Parameters("db")
+@Test
+public void testNonExistentParameter(@Optional("mysql") String db) { ... }
+如果在testng.xml文件中找不到名为“db”的参数，则测试方法将接收@Optional注释中指定的默认值：“mysql”。
+<dependency>
+        <!--testng的依赖-->
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>6.10</version>
+        <scope>test</scope>
+    </dependency>
+之后配置testng的xml
+在这个xml中我们设置要测试的类或包，如果指定的是包的话则testng将会查看包中所有的类
+并且保留具有testng注解的类。
+

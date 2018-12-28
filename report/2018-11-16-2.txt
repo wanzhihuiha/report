@@ -1,0 +1,19 @@
+测试英雄联盟官网
+登录后，从iframe返回主页面上后出现element not interactable
+解决：让其等待几秒就可以:
+Thread.sleep(3000);
+driver.switchTo().defaultContent();
+
+Select dropdown = new Select(driver.findElement(By.id("areaContentId_lol")));
+Thread.sleep(2000);
+dropdown.selectByVisibleText("艾欧尼亚  电信");
+Thread.sleep(3000);
+driver.findElement(By.id("confirmButtonId_lol")).click();
+上面的代码是让登录后选择角色的操作，
+特别是选择大区后要让它等待出现角色名，再去点确定按钮。
+
+
+actions 的鼠标事件是正常的，那么问题就应该出在页面的元素。
+是不是页面元素不可点击？还是其他原因？
+
+为啥在

@@ -1,0 +1,7 @@
+测试mysq连接的时候提示错误2003
+说明电脑里的mysql服务没有启动。
+所以在服务里找到mysql然后手动启动它就可以了
+用JMeter跑数据测试出现错误提示：
+Variable Name must not be empty for element:JDBC Connection Configuration
+这个是因为在JMeter里的JDBC Connection Configuration里面的Variable Name for created pool没有填
+还有在JDBC Request里面的Variable Name for created pool也没有填。而且这两个名字是要一样

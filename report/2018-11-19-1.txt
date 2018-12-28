@@ -1,0 +1,22 @@
+action双击事件是否是因为selenium的版本太高？
+决定下载selenium-2.52.0
+<dependency>
+            <!--selenium的依赖-->
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.52.0</version>
+        </dependency>
+先在pom里引入这个版本的依赖，然后在https://blog.csdn.net/zhang5220760138/article/details/79208380
+找到并下载selenium-server-standalone-2.52.0.jar
+之后再把chromedrive的版本换成2.43，然后先在本机上运行，结果还是失败。
+报错script timeout: result was not received in 30 seconds
+版本再换成2.42还是一样失败，一样的报错。
+然后把一行js代码js.executeAsyncScript("arguments[0].style.border='3px solid red'",duao);
+注释掉，发现报错的是元素不可被点击。
+然后换成用js直接调用方法js.executeScript("getMenu(3,1010305000,'渠道管理',1)");
+则成功。
+由于"http://10.48.183.158:9016/edc-bass-web/login.do"
+这个网站登录异常，所以换成英雄联盟官网去实验。
+
+
+先总结一下：浏览器和浏览器驱动一定要是对应的！

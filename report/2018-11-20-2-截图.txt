@@ -1,0 +1,25 @@
+testng在idea里运行如果没有成测试报告
+那么在run/edit configration/的testNG中选中类然后在listeners里把use default reports勾上。
+那重新运行就可以生成测试报告了。
+
+测试报告会出现中文乱码。所以在Reporter.log("Max the browser")中最好写英文。
+
+
+selenium自动截图：
+File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            // 拷贝截图文件到我们项目./Screenshots
+            FileUtils.copyFile(src, new File("F:\\screenshot\\screen.png"));
+        }
+
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+
+        }
+而且截图之前要导入依赖：
+<dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+</dependency>

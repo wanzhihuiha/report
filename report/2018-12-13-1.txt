@@ -1,0 +1,21 @@
+python连接mysql数据库之前要先下mysql-connector驱动
+在命令行输入python -m pip install mysql-connector
+然后等待下载完成，大概十几M大小
+然后发现原来这个和pycharm中不是共用的，这个可能是在命令写代码时才这么下载，
+所以得在pycharm中下JAR包可能才可以。
+那就以后用到了再去下吧
+异常：
+def f():
+    try:
+        print 1
+        return 1
+    except:
+        return 2
+    else:
+        print 3
+        return 3
+    finally:
+        print 0
+结果为 1 0 1
+try里面运行完之后return，阻挡了else的执行，但是并没有影响finally的执行
+也就是说不管怎么样finally都会执行。

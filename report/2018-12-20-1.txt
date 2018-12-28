@@ -1,0 +1,19 @@
+测试系统的基本框架和功能都差不多了。现在还差的是
+生成报告后把路径写入数据库。然后显示在页面上
+
+有个很奇怪的问题的，为什么在controll中可以正常使用mapper对象的方法
+但是在测试中就会出错。还是空指针异常
+
+发现mybatis
+可以只写mapper接口而不用写servies接口和实现类
+
+在用mybatis操作数据库进行添加时报错：
+Unsatisfied dependency expressed through bean property 'sqlSessionFactory'
+发现问题是xml的问题。添加了插入语句就不行了。注释掉又可以。
+仔细找找后发现原来是
+<insert id="insert_report" parameterType="com.example.demo.Model.test_report" useGeneratedKeys="true" keyProperty="id">
+        insert into report(testname,reportpath) values(#{testname}, #{reportpath})
+    </insert>
+的parameterType的值写错，这个值应该对应的是上面的
+<resultMap type="com.example.demo.Model.test_report" id="gettest_reportMap">
+的type的值。

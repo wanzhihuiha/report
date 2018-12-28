@@ -1,0 +1,22 @@
+Selenium：
+Selenium Grid是Selenium Suite的一个重要组件，它允许在不同的机器上并行运行不同浏览器的测试。
+简单来说，可以在运行不同浏览器和操作系统的不同机器上同时运行测试。
+
+
+Selenium IDE定位策略
+（按id标识符）：
+使用标识符，可以使用ID和Name等定位策略。
+使用具有匹配ID属性的第一个元素。
+如果没有元素具有匹配的ID属性，则使用具有匹配name属性的第一个元素。
+例如，id=login(可以是ID或Name)。
+
+（按name标识符）：
+名称(name)定位器类型将定位具有匹配名称属性的第一个元素，
+也就是说，如果页面中有多个相同名称的元素，第一个元素之后的元素无效。
+
+（通过XPath）：
+如果没有适合要查找的元素的id或name属性，则始终建议使用XPath属性。
+XPath属性允许使用不同的属性定位Web元素。
+语法：//htmltag[@attribute1='value1' and @attribute2='value2']
+示例：//input[@id='passwd' and @placeholder='password']
+

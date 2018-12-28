@@ -1,0 +1,5 @@
+程序提示NoClassDefFoundError: org/testng/TestNG
+还是这个问题，应该不是动态编译的问题。我觉得问题出在在tomcat上运行的时候无法识别jar包。
+
+百度了，问了导师，问题是在tomcat上运行的时候。是因为Java虚拟机在编译时能找到合适的类，
+而在运行时不能找到合适的类导致的错误。

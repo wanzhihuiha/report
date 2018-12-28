@@ -1,0 +1,18 @@
+selenium+testng用于http://10.48.183.158:9016/edc-bass-web/login.do
+这个网站的第一次试验
+首先
+driver.findElement(By.id("user_name")).sendKeys("9002025");
+driver.findElement(By.id("user_pwd")).sendKeys("qwe123");
+driver.findElement(By.id("login_btn")).click();
+但是第一次登陆失败，提示原因元素不显示，
+然后加了
+// Scroll down the webpage by 5000 pixels
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("scrollBy(0, 100)");
+就不提示错误，可能是因为刚开始显示页面元素没有全部显示。
+然后现在可以运行，也可以在用户名和密码框中输入给的数据，
+但是没有点击登录按钮就结束。
+
+
+E:\geckodrive\32\IEDriverServer.exe
+ie的驱动要用32位的，不能用64位，否则在文本框中sendkey的速度太慢。

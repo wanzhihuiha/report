@@ -1,0 +1,43 @@
+昨天试的appium-server升级到1.6.3失败了。
+试了淘宝镜像也是不行。所以现在决定用appium-desktop。
+然后这个下不了，在GitHub上的东西都先不了，也是服了
+然后再百度，找到https://www.cnblogs.com/syw20170419/p/7994482.html
+这个网址，决定按照这上面说的试一试
+首先在目录
+D:\Androidserver\Androidserver\Appium\node_modules\appium\node_modules\appium-adb\lib
+找到adb.js然后修改
+大概在188行找到那个代码
+
+再在1044行找代码
+ADB.prototype.getPIDsByName = function (name, cb) {
+  logger.debug("Getting all processes with '" + name + "'");
+  this.shell("ps '" + name + "'", function (err, stdout) {
+    if (err) return cb(err);
+    stdout = stdout.trim();
+    var procs = [];
+    var outlines = stdout.split("\n");
+    _.each(outlines, function (outline) {
+      if (outline.indexOf(name) !== -1) {
+        procs.push(outline);
+      }
+    });
+    if (procs.length < 1) {
+      logger.debug("No matching processes found");
+      return cb(null, []);
+    }
+    var pids = [];
+    _.each(procs, function (proc) {
+      var match = /[^\t ]+[\t ]+([0-9]+)/.exec(proc);
+      if (match) {
+        pids.push(parseInt(match[1], 10));
+      }
+    });
+    if (pids.length !== procs.length) {
+      var msg = "Could not extract PIDs from ps output. PIDS: " +
+                JSON.stringify(pids) + ", Procs: " + JSON.stringify(procs);
+      return cb(new Error(msg));
+    }
+    cb(null, pids);
+  });
+};
+然后把这个替换掉

@@ -1,0 +1,16 @@
+之前的那个问题不知道怎么解决。
+所以现在换个思路试一试。也就是说可不可以在加载的时候就直接把这个类运行完。
+然后动态加载的时候去调用这个类？
+通过传递参数：用例的方法名。
+放弃这个想法，没有什么具体思路，下次再试这种方式吧
+
+动态加载org/testng/TestNG这个jar包之后
+现在出现java.lang.NoClassDefFoundError: com/beust/jcommander/ParameterException
+那么就试着再加载一次
+成功了！！！
+终于成功了。
+就是按照上面的思路。把缺少jar包就把jar包动态加载进来！
+参考https://blog.csdn.net/zhuwillyn/article/details/79735691
+就是先写一个加载jar包的类，然后在加载测试类之前调用这个类，把需要的jar包动态加载进来
+然后再执行测试脚本。
+不过这个方法治标不治本。具体怎么解决类加载问题，等写完项目再看

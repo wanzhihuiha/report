@@ -1,0 +1,25 @@
+数据库已经建完了，现在的开始连接数据库，
+用mybatis吧，不用的话就忘记了。
+先在项目中建一个MODEL到时候数据就通过这个MODEL传递
+
+在写mapper的时候，出现@Mapper，但是mybatis的依赖已经引入过了。
+然后发现原来是不能直接复制@Mapper上去。要手打上去。。。。奇葩问题
+然后还有model/mapper/servies这些包要建在com.example.demo这个主包下。
+不然会出现导包导不进来。
+在自动装配的时候出现
+Could not autowire. No beans of 'test_report_mapper' type found
+说明没有识别到具体哪个包
+所以在application那个主类上加上@ComponentScan("com.example.demo.*")
+
+都写好后，启动项目然后报错数据库连接名有问题，那就按照提示的修改就可以了。
+然后正常运行又出现页面找不到。404错误。那只能把application那个主类
+的@ComponentScan("com.example.demo.*")注释掉
+还有问题是数据库时间报错：
+java.sql.SQLException: The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is 
+unrecognized or represents more than one time zone. You must configure either the server or JDBC 
+driver (via the serverTimezone configuration property) to use a more specifc time zone value 
+if you want to utilize time zone support.
+这个倒是简单在
+spring.datasource.url = jdbc:mysql://localhost:3306/xitong_report?useUnicode=true&characterEncoding=utf-8
+后面加上  &serverTimezone=GMT%2B8  就完事了。
+参考https://blog.csdn.net/qq_42815754/article/details/83652253

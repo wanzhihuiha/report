@@ -1,0 +1,21 @@
+git 连接远程仓库（github）
+先删除C:\Users\郗烯浠希\.ssh这个文件夹，如果没有就不用。
+然后在git上运行ssh-keygen -t rsa -C "1367310578@qq.com"
+就会生成个新的C:\Users\郗烯浠希\.ssh。然后复制这个文件夹里面的id_rsa.pub里面的所有内容
+去登陆github在setting里面添加ssh keygen
+先给个名字，然后把复制的内容黏贴在key里面就可以了
+然后在git上运行ssh -T git@github.com
+提示ssh: connect to host github.com port 22: Connection timed out
+说明连接失败。解决方法：
+在C:\Users\郗烯浠希\.ssh文件夹新建个和id_rsa一样的文件取名叫config
+然后在里面输入
+Host github.com
+User 1367310578@qq.com
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+之后再去运行ssh -T git@github.com，
+它会问Are you sure you want to continue connecting (yes/no)?
+输入yes，就可以连接成功
+参考：https://blog.csdn.net/vosang/article/details/50499300

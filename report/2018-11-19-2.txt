@@ -1,0 +1,16 @@
+selenium测试英雄联盟官网：
+登录成功。然后让鼠标悬浮在商城合作，上让其显示道聚城，
+WebElement xuanfu=driver.findElement(By.xpath("/html/body/div[1]/div[1]/ul"));
+//js.executeAsyncScript("arguments[0].style.border='3px solid red'",xuanfu);
+Actions actions1=new Actions(driver);
+actions1.moveToElement(xuanfu).build().perform();
+结果成功显示。
+接下实验在去点击这个道具城。
+driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/ul/li[2]/a[2]")).click();
+运行报错：selenium.ElementNotVisibleException: element not interactable
+百度一下，大概是这个元素找不到的问题，那么首先
+先等待2s看看可不可以。
+那么在点击事件前先加入Thread.sleep(2000);
+结果成功跳转。
+那么应该就是元素还没显示出来，所以点击失败。可能以后网速快一点，或者电脑加个固态硬盘就可以解决。
+

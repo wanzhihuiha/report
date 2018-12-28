@@ -1,0 +1,23 @@
+selenium显示等待；
+WebElement element = (new WebDriverWait(driver,5))
+          .until(ExpectedConditions.presenceOfElementLocated(By.id("loginIframe")));
+在5秒内每0.5秒查看一次By.id("loginIframe")是否加载完成。如果加成完成就进行下一步操作。
+如果5秒都没有加载完成，就报错。
+
+selenium不知道为啥，有时候本来好好的测试过程。突然就不按套路运行了。
+比如在搜索框里输入内容，然后点按钮搜索。
+突然它就不行了，在搜索框输入的时候就直接把内容放在搜索框的默认内容后面，
+然后也不点搜索。
+那过一会，它又可以了。
+可是控制台也没有报错，还提示运行成功。
+
+如果在testng里多个test是在同一次打开的浏览器进行操作的话。
+那么就该声明一个全局的driver，那么进行test测试的时候，一个个test测试下来。就会一直是
+同一次打开的浏览器。
+
+在selenium运行时自动打开一个新标签页
+js.executeScript("window.open('www.baidu.com')");
+但是页面的地址栏中会有上个页面的地址，然后才跟着'www.baidu.com'。
+然后修改了一下：
+js.executeScript("window.open('https://www.baidu.com/')");
+加上http://就可以正常打开百度了。

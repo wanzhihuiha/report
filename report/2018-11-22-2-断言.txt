@@ -1,0 +1,10 @@
+之前的断言操作：
+System.out.println(driver.getCurrentUrl());
+String url = "https://daoju.qq.com/lol/list/shoppinglist.shtml?sGoodsName=%E6%AD%A6%E5%99%A8";
+System.out.println(url);
+assert url == driver.getCurrentUrl();
+本来这个断言应该是正确的。而且输出的两个url也是相等的。但是还是报错了。
+
+问了导师，是我断言用法的问题。
+应该写成：Assert.assertEquals(thurl,url);
+这样才是正确的写法。

@@ -1,0 +1,29 @@
+解决之前的英雄联盟搜索框中有默认字符。
+首先在输入内容前先把搜索框中的内容清空：
+driver.findElement(By.xpath("//*[@id=\"inpt_nav_search_name\"]")).clear();
+然后再把要输入的内容输入进搜索框中：
+driver.findElement(By.xpath("//*[@id=\"inpt_nav_search_name\"]")).sendKeys("武器");
+然后发现写的点击事件很玄学啊，点击事件修改之后第一次运行就正常运行。
+但是之后再运行就不点击了。。。
+
+
+换成火狐浏览器。
+System.setProperty("webdriver.gecko.driver", "E:\\geckodrive\\geckodriver.exe");
+System.setProperty("webdriver.firefox.bin", "E:\\Firefox\\firefox.exe");
+driver = new FirefoxDriver();
+但是火狐浏览器的selenium依赖要求比较高。
+<dependency>
+            <!--selenium的依赖-->
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.52.0</version>
+        </dependency>
+这个版本就太低。换成
+<dependency>
+            <!--selenium的依赖-->
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.5</version>
+        </dependency>
+就可以了。
+还有一个问题是火狐浏览器切换浏览器要先睡眠几秒，不然得不到先页面的句柄。

@@ -1,0 +1,19 @@
+driver.findElement(By.id("1010300001")).click();
+在ie上就可以点击，
+换成chrome浏览器就不行。
+原因：可能是chrome驱动和selenium不兼容，所以用js点击的方法。
+WebElement yewu=driver.findElement(By.id("1010300001"));
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("arguments[0].click();", yewu);
+
+
+在弹窗里的元素是不能被直接定位到的，所以要定位弹窗里的元素要先切换的弹窗里。
+例如：
+WebElement iframe = driver.findElement(By.id("res_iframe"));//定位到弹窗
+driver.switchTo().frame(iframe);//切换进弹窗
+
+渠道管理的双击事件一直不行。试了许多方法，包括：
+//js.executeScript("arguments[0].click();",duao);
+//actions.doubleClick(duao).perform();
+//js.executeScript("getMenu(3,1010305000,'渠道管理',1)");
+都不行。

@@ -1,0 +1,51 @@
+idea配置selenium：
+新建一个maven项目然后在POM.xml中引入selenium3.0的依赖
+<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.5</version>
+        </dependency>
+如果selenium的官网上不去的话可以去https://mvnrepository.com/search?q=selenium
+这个网上找selenium最新的依赖，要选择selenium java 这个。
+之后去https://github.com/mozilla/geckodriver/releases下载适合自己系统的可执行文件
+例如win10就下载geckodiver-win64
+下载之后解压到文件夹中，
+就可以在测试代码中使用了。
+最后浏览器建议使用firefox，因为用这个浏览器就不用再去下额外的selenium对应的浏览器驱动。
+用firefox：
+代码：
+System.setProperty("webdriver.gecko.driver", "E:\\geckodrive\\geckodriver.exe");
+System.setProperty("webdriver.firefox.bin", "E:\\Firefox\\firefox.exe");
+
+
+如果用的是chrome:
+需要在http://chromedriver.storage.googleapis.com/index.html，
+下载对应chrome浏览器版本的chormedrive。
+代码：
+System.setProperty("webdriver.chrome.driver", "E:\\geckodrive\\chromedriver.exe");
+
+如果是IE浏览器：
+http://selenium-release.storage.googleapis.com/index.html?path=3.8/
+下载对应系统的IE驱动包。
+System.setProperty("webdriver.ie.driver", "E:\\geckodrive\\IEDriverServer.exe");
+
+但是测试时遇到问题，IE浏览器无法访问给定的地址，只能访问Localhost的端口。
+解决：窗口缩放设置100%（网上也有其他的解决方法比如修改安全模式等）。
+但是还有一问题就是IE登上指定的网址后无法进行下一步操作，比如无法自动在再搜索框中输入。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

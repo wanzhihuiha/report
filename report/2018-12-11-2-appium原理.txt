@@ -1,0 +1,37 @@
+appium原理：
+在Android端，appium基于WebDriver协议，利用Bootstrap.jar，最后通过调⽤用UiAutomator的命令，
+实现App的自动化测试。UiAutomator测试框架是Android SDK自带的App UI自动化测试Java库。
+
+Appium服务器：
+Appium服务器是Appium框架的核心。它是一个基于Node.js实现的HTTP服务器。
+Appium服务器的主要功能是接受从Appium客户端发起的连接，监听从客户端发送来的命令
+将命令发送给bootstrap.jar（iOS手机为bootstrap.js）执行，
+并将命令的执行结果通过HTTP应答反馈给Appium客户端。
+
+Bootstrap.jar：
+Bootstrap.jar是在Android手机上运行的一个应用程序，它在手机上扮演TCP服务器的角色。
+当Appium服务器需要运行命令时，Appium服务器会与Bootstrap. jar建立TCP通信，
+并把命令发送给Bootstrap.jar; Bootstrap.jar负责运行测试命令。
+
+Appium客户端：
+它主要是指实现了Appium功能的WebDriver协议的客户端Library，
+它负责与Appium服务器建立连接，并将测试脚本的指令发送到Appium服务器。
+
+Session：
+Appium的客户端和服务端之间进行通信都必须在一个Session的上下文中进行。
+客户端在发起通信的时候首先会发送一个叫作“Desired Capabilities”的JSON对象给服务器。
+服务器收到该数据后，会创建一个session并将session的ID返回到客户端。
+之后客户端可以用该session的ID发送后续的命令。
+
+Desired Capabilities：
+Desired Capabilities是一组设置的键值对的集合，其中键对应设置的名称，而值对应设置的值。
+Desired Capabilities主要用于通知Appium服务器建立需要的Session，
+其中一些设置可以在Appium运行过程中改变Appium服务器的运行行为。
+
+
+
+
+
+
+
+

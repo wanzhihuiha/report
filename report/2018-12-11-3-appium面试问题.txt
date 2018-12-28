@@ -1,0 +1,14 @@
+appium面试问题：
+Python垃圾回收机制
+App从后台唤起Activity经历的阶段
+awk如何实现Mysql中group by的效果？
+liunx直接查看某个进程的占用端口命令?
+Sql四种连接，区别分别是什么
+group by分组统计
+如何获取app元素属性?
+	WebElement get_attribute(("text"))
+Ui自动化测试框架有哪些?
+app兼容性测试如何去做?
+Jenkins持续集成配置有哪些？写一个每天1-2点定时执行的表达式？
+测试质量衡量标准
+App个人中心界面怎么测试？

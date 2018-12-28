@@ -1,0 +1,18 @@
+现在已经进到免认证后的页面了。
+所以现在要做的去点击树节点，然后选择套餐。
+
+driver.switchTo().parentFrame();
+这个可以返回上层的iframe,如果有多层iframe那就写对应个数的
+driver.switchTo().parentFrame();
+就可以到达想要的那一层iframe。
+((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+这个代码的作用是滚动到当前页面底部。如果在iframe里面，那就滚动到iframe底部。
+
+为啥有时候运行好好的突然就报：
+support.ui.ExpectedConditions findElement
+
+页面左右滚动：
+((JavascriptExecutor) driver).executeScript("window.scrollBy(-100, 150)");
+这个是相对位置，就是说相对当前位置向左滚动100像素，向下滚动150像素。
+
+

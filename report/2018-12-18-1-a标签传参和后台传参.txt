@@ -1,0 +1,20 @@
+File[] tempList = file.listFiles();
+file 的list是不能直接当成list返回的
+是类型的原因，所以应该先转化成正常的list才可以
+List<String> list = new ArrayList<>();
+        for (int i=0;i<tempList.length;i++) {
+            list.add(tempList[i].getName());
+
+        }
+
+在html中使用el表达式：<h1 th:text="${tip}">${tip}</h1>
+
+在后台传参：
+map.addAttribute("tip", "上传成功");
+并且在函数头：
+public String upload(@RequestParam("file") MultipartFile file, ModelMap map)
+要写上map参数
+在tab里的 a标签传参的时候：
+str = "<tr><td>" + data[i]+ "</td>
+<td><a href='run?PAT="+data[i]+"' target=\"_blank\">运行</a></td></tr>"
+引号和引号的用处要分清楚

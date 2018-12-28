@@ -1,0 +1,17 @@
+用java动态编译执行，
+参考博客https://mengqingyu.iteye.com/blog/1826529
+其中//文件读取路径
+private static final String READER_PATH = System.getProperty("user.dir")+"/haha/codeText.txt";
+
+//文件输出路径
+private static final String WRITER_PATH = System.getProperty("user.dir")+"/src/CodeText.java";
+这两个分别表示：READER_PATH需要引入的外部代码文件
+WRITER_PATH：编译后的代码文件应该放在哪里
+	
+现在开始把spring-boot和java动态执行结合起来
+第一个问题是如何把上传文件这个controller里的文件位置还有文件名传递给动态执行的controller
+首先在加载首页时要读取目录中的文件名并传递给前台页面
+
+在用ajax之前要先引入jq包不然不行
+而且js的包要放在static包下，不然是找不到的
+	

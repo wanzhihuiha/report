@@ -1,0 +1,20 @@
+昨天写到bop里面的控件上，今天要写的是进入点击后的可选包控件里。
+昨天看代码是在两个iframe里。但是
+element = (new WebDriverWait(driver,20))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("WzoneIframel")));
+driver.switchTo().frame(driver.findElement(By.id("WzoneIframel")));
+这么写报错：
+org.openqa.selenium.TimeoutException: 
+Timed out after 20 seconds waiting for presence of element located by: By.id: WzoneIframel
+说明在显示等待的20秒后都没有找到id为WzoneIframel的iframe。
+
+如果上次是正常退出。那么下次登录就不会有alert弹窗出现。那如果代码不改的话就会出错。
+
+上面那个没找到iframe的问题解决了。不是技术问题是因为WzoneIframe1这个后面不是而是数字1.
+有时候页面出现问题，比如点那个可选包受理。但是它弹出的窗口出错。那时我们就得不到想要的iframe了。
+那就会报错：
+Unable to find element with id ==
+ ccms_operate_iframe (WARNING: The server did not provide any stacktrace information
+当然这不是什么大问题。下次等它页面好了。就不会有问题。
+
+这个去点击免认证按钮时也要等待一会。应该是因为有个加载的窗口会弹出来。

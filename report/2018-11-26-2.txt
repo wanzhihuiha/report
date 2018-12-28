@@ -1,0 +1,14 @@
+现在换成http://10.46.180.96:3034/bop/bop/before_index.jsp
+这个网址了。
+点击登录后有个alert弹窗：去点接受：
+Alert alt=driver.switchTo().alert();
+alt.accept();
+
+为什么
+js.executeAsyncScript("arguments[0].style.border='1px solid red'",AA);
+actions.click(AA).perform();
+这两个同时用会报错。
+单独一个用就可以
+
+然后之前点击可选产品受理会跳的增值业务哪里。
+是因为悬浮菜单刚好也在那个位置。

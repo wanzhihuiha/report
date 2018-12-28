@@ -1,0 +1,21 @@
+git 连接远程仓库（github）
+连接上远程仓库后，在Git上输入git remote add origin git@github.com:wanzhihuiha/git.git
+git@github.com:wanzhihuiha/git.git为在github上新建仓库的ssh
+之后 git push -u origin master就会把本地仓库的内容放到远程仓库上
+克隆远端文件：git clone加上远程仓库地址例如：
+git clone git@github.com:wanzhihuiha/DATA.git
+
+git checkout -b slave1   创建并切换到slave1
+git checkout slave2      切换到slave2
+在一个分支上做修改不会影响到其他分支上内容
+git merge slave1   合并slave1分支到当前分支上
+如果两个分支冲突就会合并失败那个
+ git reset --merge 回退到合并之前的状态上
+ 在修改文件之后又不马上提交
+ 用git stash  隐藏当前工作空间
+git stash list 查看隐藏空间的内容  git stash pop 把隐藏空间里的内容都取出来
+
+如果在当前分支上修改完文件，如果不提交到本地仓库上的话，是无法切换分支的
+git push origin slave1  把slave1分支推送到远程仓库上，
+如果远程仓库没有这个分支就自动会创建
+退出git后下次再进来直接打开git 然后cd到之前gin init的那个目录上就可以了

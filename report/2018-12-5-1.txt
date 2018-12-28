@@ -1,0 +1,7 @@
+python3以后的版本和2的版本不同;
+输出的方式都不一样了
+3以后的输出：print( "hello");2的输出 print"hello";
+
+python的字符串不能改变，但列表可以，元组（tuple）与列表类似
+虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
+字符串var1 = 'Hello World!'

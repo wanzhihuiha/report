@@ -1,0 +1,18 @@
+testng+selenium+maven:
+整合之后直接运行tesng.xml结果是出来了。但是结果直接显示在控制台，
+没有在surefire-report中生成报告。
+
+使用maven命令在Terminal控制台输入mvn -f pom.xml clean test  -DxmlFileName=testNG.xml
+就可以运行并且也会生成报告，但是使用maven命令运行的结果和直接在xml中运行的结果不一致。
+这次是因为乱码的原因，第一次运行时没有乱码，所以可以按写好的正常流程运行，
+之后运行mav命令时出现乱码，浏览器无法识别输入的乱码所以报错，
+解决把idea的基字符都改成utf-8，还有在安装目录下的bin中的idea的启动VM参数也要改，之后重启idea。
+参考：https://blog.csdn.net/zhou_zi_jun/article/details/78399353
+然后重新打开后第一遍通过xml运行，结果没有出错。
+但是运行mav命令还是出现乱码，运行报错
+而且target下面的test-class文件也是中文乱码
+然后发现run/edit configurition 下的testng没有改成utf-8
+参考：http://stamen.iteye.com/blog/1897286
+之后要先运行mvn命令虽然控制台还是乱码，但是可以浏览器可以正常运行
+再运行xml也可以正常运行了，target下面的test-class文件也正常了。
+就是mvn命令的控制台还是中文乱码不过不影响结果，暂时也还没有解决方法。

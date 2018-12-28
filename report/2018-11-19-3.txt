@@ -1,0 +1,18 @@
+selenium测试英雄联盟：
+从首页打开道具城，然后 网页切换到道聚城里，百度代码：
+Set<String> winHandels = driver.getWindowHandles();
+List<String> it = new ArrayList<String>(winHandels);
+driver.switchTo().window(it.get(2));
+但是提示找不到元素。
+然后发现原来是找元素的代码写错了。
+driver.findElement(By.xpath("//*[@id=\"inpt_nav_search_name\"]")).sendKeys("武神");
+driver.findElement(By.xpath("//*[@id=\"btn_nav_search_submit\"]")).click();
+写成by.id了所以没找到。
+而且chrome浏览器开自动化测试的时候，一开始打开的那个给定的url地址是it.get(0)。
+然后它会自动打开一个data网页，虽然这个网页什么都没有，但是这个网页是it.get(1).
+之后我们在第一个网页里通过自动化打开的网站是it.get(2)、it.get(3)、it.get(4)等
+
+为什么去掉driver.switchTo().frame(iframe);
+这一行代码没有报错？？
+不是应该提示没有找到元素?
+

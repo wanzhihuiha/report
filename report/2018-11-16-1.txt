@@ -1,0 +1,6 @@
+还是selenium鼠标事件的问题
+WebElement yewu=driver.findElement(By.id("1010300001"));
+正确找到这个元素后，鼠标事件出现问题
+actions.click(yewu).perform();或driver.findElement(By.id("1010300001")).click();
+这么写的话，就不会找到正确点击这个按钮，而是点了别的按钮
+直接用js.executeScript("arguments[0].click();",yewu);。就可以

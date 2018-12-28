@@ -1,0 +1,11 @@
+等下回去写个博客。
+题目就叫做 在tomcat上运行war包动态编译时出现java.lang.NoClassDefFoundError:
+因为我是动态编译一个testng的代码
+然后出现这个错误。说明testng的jar包没有被编译。
+但是在webapp下的项目中的lib文件夹下是存在testng的包的。
+而且不用动态编译的时候直接在项目中运行testng的测试却又是可以的。
+这个问题的根源应该是java类加载器的问题。
+但是因为直接解决根源难度太大。所以想了取巧的方式。
+就是额外再去加载需要的jar包，比如错误提示
+java.lang.NoClassDefFoundError:org/testng/TestNG
+这就说明需要加载testng.jar。

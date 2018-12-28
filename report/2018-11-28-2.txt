@@ -1,0 +1,20 @@
+在windows命令窗口运行abd提示不是可执行命令
+可是明明已经把路径加到环境变量了。
+原来环境变量写的有问题
+%ANDROID_HOME%\tools和%ANDROID_HOME%\platform-tools不能写在一行里，要分开写
+然后重新打开命令行就可以识别adb了。
+之后运行adb shell
+在root@generic:/ #后面输入dumpsys activity|grep mFocusedActivity
+显示：
+mFocusedActivity: ActivityRecord{cca1f4c u0 com.google.android.leanbacklauncher/.MainActivity t1}
+root@generic:/ #
+其中com.google.android.leanbacklauncher就是
+capabilities.setCapability("appPackage", "com.google.android.leanbacklauncher");的参数
+.MainActivity是
+capabilities.setCapability("appActivity", ".MainActivity");的参数
+
+appium-server的版本已经没有更新了，所以不能用最新的nodejs
+最好是用nodejs.6.9.2
+在https://nodejs.org/dist/v6.9.4/这个网址下载node-v6.9.4-x64.msi 
+这个是安装软件。下好后直接安装。安装完成后打开命令窗口运行node -v就会出现安装的版本号
+说明安装好了
