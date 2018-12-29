@@ -1,0 +1,5 @@
+在把idea的项目目录设置为本地仓库之后，在idea里面看到
+项目目录都变成红色的了。这是因为没有在idea上设置版本控制器
+所以在setting中的Version Control里面的git上如果那个test后是提示成功
+那么就可以在idea的项目主目录上右键，找到git，然后点add。
+就会在.idea目录下生成一个vcs.xml的文件
