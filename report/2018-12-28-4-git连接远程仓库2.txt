@@ -17,5 +17,5 @@ git stash list 查看隐藏空间的内容  git stash pop 把隐藏空间里的�
 
 如果在当前分支上修改完文件，如果不提交到本地仓库上的话，是无法切换分支的
 git push origin slave1  把slave1分支推送到远程仓库上，
-如果远程仓库没有这个分支就自动会创建
+将本地的slave1分支推送到origin主机的slave1分支。如果后者不存在，则会被新建
 退出git后下次再进来直接打开git 然后cd到之前gin init的那个目录上就可以了
