@@ -3,3 +3,9 @@
 所以在setting中的Version Control里面的git上如果那个test后是提示成功
 那么就可以在idea的项目主目录上右键，找到git，然后点add。
 就会在.idea目录下生成一个vcs.xml的文件
+git remote add graduate git@github.com:wanzhihuiha/Graduation_project.git
+这个graduate可以自己取名，代表后面这个地址的仓库名下次push的时候可以直接
+git push graduate master
+把本地master分支的推送到名为graduate的github仓库上
+在githubdesktop上clone下一个仓库后。在history上可以看没次提交与上次提交的区别。
+然后点击Fetch origin可以更新仓库，保持与github上同步
