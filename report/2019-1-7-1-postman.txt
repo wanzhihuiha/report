@@ -1,0 +1,4 @@
+postman的安装
+参考https://www.cnblogs.com/mafly/p/postman.html
+在chrome里面安装，在扩展程序中要打开开发者模式。
+然后加载已解压的扩展程序，找到那个解压的地址就可以
