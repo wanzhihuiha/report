@@ -1,0 +1,11 @@
+pycharm的激活：https://blog.csdn.net/u014044812/article/details/78727496
+python语言的缩进导致不能直接复制黏贴，因为会有缩进问题，导致报错。
+
+在pyacharm中写爬虫的时候一直import requests报错，说无法识别，但是明明已经通过
+命令行下载好了。百度也没有解决，后来在setting里面的project里的project interpreter中直接
+去点击右边+好，然后找到requests的包然后加载进来就不报错了
+all_a = BeautifulSoup(r.text, 'lxml').find_all('a', class_='_2Mc8_')  #获取网页中的class为cV68d的所有a标签
+for a in all_a:
+  print(a['style']) #循环获取a标签中的style
+这样写得不到结果还会出错，不知道为啥
+如果只输出a的话是可以的。可是那样的话就是输出a标签的全部数据。太多了。不好整理
