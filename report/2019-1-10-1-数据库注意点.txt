@@ -1,0 +1,14 @@
+参考https://blog.csdn.net/u014044812/article/details/78931044
+数据库执行顺序：
+FROM子句->WHERE子句->GROUP BY子句->HAVING子句->ORDER BY子句->SELECT子句->LIMIT子句
+GROUP BY子句：
+	GROUP BY我们可以先从字面上来理解，GROUP表示分组，BY后面写字段名，就表示根据哪个字段进行分组，
+如果有用Excel比较多的话，GROUP BY比较类似Excel里面的透视表。GROUP BY必须得配合聚合函数来用，
+分组之后你可以计数（COUNT），求和（SUM），求平均数（AVG）等。
+HAVING 子句：
+	对 GROUP BY 子句设置条件的方式与 WHERE 和 SELECT 的交互方式类似。WHERE 搜索条件在进行分组操作
+之前应用；而 HAVING 搜索条件在进行分组操作之后应用。HAVING 语法与 WHERE 语法类似，
+但 HAVING 可以包含聚合函数。HAVING 子句可以引用选择列表中显示的任意项。
+
+数据库只做存储功能，其他的基本都交给服务层代码去实现
+比如存储过程，视图，触发器，这些都在服务层代码写，不然在并发量较大的情况下就容易出现问题。
