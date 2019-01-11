@@ -1,0 +1,14 @@
+python写selenium测试的时候，要先安装selenium:pip install selenium 
+然后还要再python的安装包中下一个chromedrive，那么就可以正常通过代码启动浏览器。
+
+python语法会驻留，就是发生驻留之后, 许多变量可能指向内存中的相同字符串对象. (从而节省内存)
+所有长度为 0 和长度为 1 的字符串都被驻留.
+字符串在编译时被实现 ('wtf' 将被驻留, 但是 ''.join(['w', 't', 'f'] 将不会被驻留)
+字符串中只包含字母，数字或下划线时将会驻留. 所以 'wtf!' 由于包含 ! 而未被驻留.
+ 可以在这里找到 CPython 对此规则的实现.
+
+当在 "try...finally" 语句的 try 中执行 return, break 或 continue 后, finally 子句依然会执行.
+函数的返回值由最后执行的 return 语句决定. 由于 finally 子句一定会执行,
+所以 finally 子句中的 return 将始终是最后执行的语句。这一点好像java也是，finally是一定会执行。
+
+Python id() 函数函数用于获取对象的内存地址。
