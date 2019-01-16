@@ -1,0 +1,14 @@
+在python中，文件的命名不能包名一样，不然在导包的时候，
+编译器就会以为是从这个文件中导入，那么就会出错。
+比如我新建一个mysql.py然后在里面连接数据库
+import mysql.connector
+那么编译时就会出现 No module named 'mysql.connector'; 'mysql' is not a package
+原因就是不能mysql.py和mysql这个包重名了。解决方法也很简单，重命名mysql.py就可以。
+
+python web开发要先安装DJANGO
+在命令行中pip install Django==2.1.5
+然后等它下好后就可以了。进入python然后输入import django  django.version
+如果输出django的版本号那就说明可以了。
+
+安装nginx-servies的时候最好在命令提示符的管理员模式下运行。
+然后要停止的话还要去任务管理器中去关闭nginx.exe.
